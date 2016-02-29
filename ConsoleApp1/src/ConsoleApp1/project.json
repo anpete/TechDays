@@ -1,6 +1,6 @@
 ﻿{
   "version": "1.0.0-*",
-  "description": "Metadata Console Application",
+  "description": "ConsoleApp1 Console Application",
   "authors": [ "anpete" ],
   "tags": [ "" ],
   "projectUrl": "",
@@ -16,7 +16,7 @@
   },
 
   "commands": {
-      "Metadata": "Metadata"
+    "ConsoleApp1": "ConsoleApp1"
   },
 
   "frameworks": {
