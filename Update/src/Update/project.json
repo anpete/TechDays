@@ -1,6 +1,6 @@
 ﻿{
   "version": "1.0.0-*",
-  "description": "ConsoleApp1 Console Application",
+  "description": "Update Console Application",
   "authors": [ "anpete" ],
   "tags": [ "" ],
   "projectUrl": "",
@@ -16,7 +16,7 @@
   },
 
   "commands": {
-    "ConsoleApp1": "ConsoleApp1"
+    "Update": "Update"
   },
 
   "frameworks": {
