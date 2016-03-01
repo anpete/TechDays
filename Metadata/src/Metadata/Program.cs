@@ -24,10 +24,8 @@ namespace Metadata
     {
         public DbSet<Customer> Customers { get; set; }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder options)
-        {
-            options.UseSqlServer("Data Source=.\\SQLEXPRESS;Integrated Security=True;Database=Northwind");
-        }
+        protected override void OnConfiguring(DbContextOptionsBuilder options) 
+            => options.UseSqlServer("Data Source=.\\SQLEXPRESS;Integrated Security=True;Database=Northwind");
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -36,12 +34,12 @@ namespace Metadata
 
             #region Model convention
 
-            foreach (var entity in modelBuilder.Model.GetEntityTypes())
-            {
-                modelBuilder
-                    .Entity(entity.Name)
-                    .ToTable("tbl_" + entity.ClrType.Name.ToLower());
-            }
+//            foreach (var entity in modelBuilder.Model.GetEntityTypes())
+//            {
+//                modelBuilder
+//                    .Entity(entity.Name)
+//                    .ToTable("tbl_" + entity.ClrType.Name.ToLower());
+//            }
 
             #endregion
         }

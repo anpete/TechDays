@@ -6,10 +6,12 @@ using Microsoft.Extensions.Logging;
 
 namespace Update
 {
-    internal class Program
+    public class Program
     {
         public static void Main()
         {
+            #region ServiceProvider
+
             var serviceProvider
                 = new ServiceCollection()
                     .AddEntityFramework()
@@ -19,9 +21,11 @@ namespace Update
 
             serviceProvider.GetService<ILoggerFactory>().AddConsole();
 
+            #endregion
+
             using (var context = new BlogContext(serviceProvider))
             {
-                for (var i = 0; i < 20; i++)
+                for (var i = 0; i < 10; i++)
                 {
                     context.Add(
                         new Blog
@@ -46,16 +50,10 @@ namespace Update
         public DbSet<Blog> Blogs { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder
+            => optionsBuilder
                 .EnableSensitiveDataLogging()
                 .UseSqlServer(@"Server=.\SQLEXPRESS;Database=Update;Trusted_Connection=True;")
                 .MaxBatchSize(1);
-        }
-
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-        }
     }
 
     public class Blog
